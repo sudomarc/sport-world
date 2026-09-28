@@ -1,0 +1,55 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+secrets/
+.secret/
+credentials/
+credentials.json
+
+# Local agent / AI state
+.ai/
+.agents/
+.claude/
+.codex/
+.cursor/
+.github/copilot-instructions.md
+.mcp.json
+*.session
+*.sessions
+agent-state/
+agent-work/
+agent-output/
+.vibe/
+vibe/
+vibe-coding/
+vibe-coding-instructions/
+
+# Generated planning / scratch files
+*.local.md
+*.generated.md
+*.scratch.md
+tmp/
+temp/
+scratch/
+
+# Logs and local runtime state
+*.log
+logs/
+.cache/
+coverage/
+.nyc_output/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
