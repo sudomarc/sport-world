@@ -14,28 +14,45 @@ Pinned upstream source:
 - Repository: https://github.com/sudomarc/vibe-coding-instructions
 - Pinned commit: `a79ac4a97179f7dac00ee356722bb47f41909ac2`
 
-Before every substantive task, every coding agent MUST load:
+Before every substantive task, every coding agent MUST load the governance stack in this exact order:
 1. this `AGENTS.md`;
-2. `.ai/VIBE-CODING.md`;
-3. the pinned upstream `AGENTS.md` or equivalent contract;
-4. only the task-relevant Vibe skills and agent profiles.
+2. the pinned upstream Vibe Coding Instructions `AGENTS.md`;
+3. the pinned upstream Vibe Coding Instructions skill catalog / relevant `SKILL.md` files;
+4. the pinned upstream Vibe Coding Instructions agent-role profiles;
+5. local `.ai/` overlays only as supplemental project-specific constraints.
 
-For this public web project, the default relevant skills are:
-- `.ai/skills/web-project-baseline/SKILL.md`
-- `.ai/skills/design-direction/SKILL.md`
-- `.ai/skills/design-system/SKILL.md`
-- `.ai/skills/anti-vibe-design/SKILL.md`
-- `.ai/skills/responsive-design/SKILL.md`
-- `.ai/skills/browser-qa/SKILL.md`
-- `.ai/skills/accessibility/SKILL.md`
-- `.ai/skills/web-performance/SKILL.md`
-- `.ai/skills/seo-web/SKILL.md`
-- `.ai/skills/web-security/SKILL.md`
-- `.ai/skills/asset-pipeline/SKILL.md`
+### Upstream Vibe Coding Instructions are mandatory, not optional
+
+The upstream repository at the pinned commit is the authoritative source for Vibe Coding Instructions:
+
+- Repository: `sudomarc/vibe-coding-instructions`
+- Pinned commit: `a79ac4a97179f7dac00ee356722bb47f41909ac2`
+
+Agents MUST inspect the upstream repository at that exact commit and load the actual upstream files needed for the task. They MUST NOT satisfy this requirement merely by reading locally generated/copied files under `.ai/agents/` or `.ai/skills/`.
+
+For every substantive task, the orchestrator MUST:
+- discover the upstream agent/skill catalog at the pinned commit;
+- select and load **at least 5 upstream specialist agent profiles** with distinct responsibilities;
+- select and load **at least 5 upstream skills** relevant to the task;
+- record which upstream profiles and skills were actually loaded;
+- use local `.ai/agents/` and `.ai/skills/` only to add Sport World-specific constraints, never as a substitute for the upstream source;
+- stop and report the governance dependency if the pinned upstream source cannot be inspected.
+
+For this public web project, the baseline upstream skill selection should cover, as applicable: web-project baseline, design direction, design system, anti-vibe design, responsive design, browser QA, accessibility, performance, SEO, security, and asset handling. The exact filenames/paths MUST be discovered from the pinned upstream catalog rather than guessed.
+
+### Mandatory agent-role coverage
+
+At minimum, the loaded upstream profiles MUST collectively cover:
+1. Product/content strategy
+2. Design direction/design system
+3. Frontend architecture/implementation
+4. Conversion/SEO/content
+5. Accessibility/performance/security
+6. Browser QA/release verification when browser-visible behavior is changed
 
 Do not bypass this process because a change appears easy. A trivial documentation change may use a one-line plan, but substantive implementation still follows the governed workflow.
 
-If the Vibe Coding Instructions source is unavailable and no equivalent local source is available, do not silently proceed with a substantive task. Report the missing governance dependency.
+If the Vibe Coding Instructions source is unavailable and no equivalent upstream evidence can be inspected, do not silently proceed with a substantive task. Report the missing governance dependency.
 
 ## Mandatory operating loop
 
@@ -75,7 +92,7 @@ If the execution environment cannot actually delegate to the required minimum te
 
 ## Vibe-agent mapping
 
-Use the provider-neutral upstream profiles where available. The local role contracts in `.ai/agents/` specialize them for Sport World.
+Use the provider-neutral **upstream** profiles as the primary role contracts. The local role contracts in `.ai/agents/` are optional Sport World overlays and MUST NOT replace upstream profiles.
 
 Suggested mappings:
 - Product/content → research + planning profiles
